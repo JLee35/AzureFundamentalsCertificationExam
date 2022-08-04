@@ -382,3 +382,108 @@ Supports the following models that you can use to connect your on-premises netwo
 - Serverless computing technologies
 - IoT services
 
+## IoT services
+
+### Azure IoT Hub
+- Managed service hosted in the cloud and acts as a central message hub for bi-directional communications between your IoT application and the devices it manages
+- Can be used to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution back end
+- You can connect virtually any device to your IoT hub
+- Supports multiple messaging patterns, such as device-to-cloud telemetry, file upload from devices, and request-reply methods to control your devices in the cloud
+- After an IoT hub receives a message from a device, it can route that message to other Azure services
+- Allows for command and control, either manual or automated
+- Helps maintain health of your solution by tracking events such as device creation, device failures, and device connections
+
+### Azure IoT Central
+- Builds on top of IoT Hub by adding a dashboard that allows you to connect, monitor, and manage your IoT devices
+- Provides starter templates for common scenarios across various industries
+- You can use the UI to control your devices remotely
+
+### Azure Sphere
+- Creates an end-to-end, highly secure IoT solution for customers that encompasses everything from the hardware to the operating system
+- Has built-in communication and security features for internet-connected devices
+- Includes hardware
+
+Comes in three parts:
+1. Azure Sphere micro-controller unit (MCU): responsible for processing the operating system and signals from the attached sensors
+2. Customized Linux operating system (OS): handles communication with the security service and runs vendor's software
+3. Azure Sphere Security Service (AS3): Makes sure the device has not been maliciously compromised via certificate-based authentication
+
+## Decision Criteria
+- If security is your main concern, use Azure Sphere
+- If you only need to connect to your remote devices for telemetry and occasionally push updates, and you don't need any reporting capabilities, use Azure IoT Hub by itself
+- If you want pre-built customizable UIs then you should use IoT Central
+
+## Knowledge check
+1. A company wants to build a new voting kiosk for sales to governments around the world. Which IoT technologies should the company choose to ensure the highest degree of security? -> Azure Sphere (best for security)
+2. A company wants to quickly manage its individual IoT devices by using a web-based user interface. Which IoT technology should it choose? -> IoT Central (best for GUI stuff)
+3. You want to send messages from the IoT device to the cloud and vice versa. Which IoT technology can send and receive messages? -> IoT Hub (base functionality)
+
+## Artificial Intelligence services
+
+## Identify the product options
+There are two basic approaches to AI
+1. Deep learning: modeled on the neural network of the human mind, enabling it to discover, learn and grow through experience
+2. Machine learning: a data science technique that using existing data to train a model, test it, and then apply the model to new data to forecast future behaviors, outcomes, and trends
+
+### Azure product options
+Three primary product offerings from Microsoft
+1. Azure Machine Learning
+2. Azure Cognitive Services
+3. Azure Bot Services
+
+### Azure Machine Learning
+- Platform for making predictions
+- Consists of tools and services that allow you to connect to data and train and test models to find one that will most accurately predict a future result
+- After you've run experiments to test the model, you can deploy and use it in real time via a web API endpoint
+
+You can:
+- Create a process that defines how to obtain data, how to handle missing or bad data, how to divide dat into sets, and how to deliver that data to a training process
+- Train and evaluate predictive models with tools familiar to data scientists
+- Create pipelines that define where and when to run the compute-intensive experiments that are required to score the algorithms based on the training and test data
+- Deploy the best-performing algorithm as an API to an endpoint so it can be consumed in real time by other applications
+
+Choose this when you need complete control over the design and training of an algorithm using your own data.
+
+### Azure Cognitive Services
+- Provides prebuilt machine learning models that enable applications to see, hear, speak, understand, and even begin to reason.
+- Use to solve general problems, such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces
+- Don't need special machine learning or data science knowledge to use these services
+- Easy access via APIs
+- Provides pretrained models
+
+Can be divided into the following categories:
+- Language services: Allow your apps to process natural language with prebuilt scripts, evaluate sentiment, and learn how to recognize what users want
+- Speech services: Convert speech into text and text into natural-sounding speech or translate from one language to another
+- Vision services: Add recognition and identification capabilities when analyzing pictures, videos, etc
+- Decision services: Add personalized recommendations for each user that automatically improve each time they're used, moderate content to monitor and remove risky content, and detect abnormalities in your time series data
+
+### Azure Bot Service
+- Platform for creating virtual agents that understand and reply to questions just like a human
+- Bit different than other options because it has a specific use case
+- Creates a virtual agent that can intelligently communicate with humans
+- Behind the scenes, the bot uses other Azure services, such as Azure Cognitive Services, to understand what their human counterparts are asking for
+- Bots can be used to shift simple, repetitive tasks, such as taking a dinner reservation or gathering profile information.
+- Users can interact with a bot using text, interactive cards, and speech
+
+## Analyze the decision criteria
+- Use Azure Bot Service when you need to create a virtual agent to interact with humans
+- Use Azure Cognitive Services for general purpose tasks, such as performing speech to text
+- Use Azure Cognitive Services Personalizer service to predict user behavior and provide relevant experiences as it identifies usage patterns.
+- User Azure Machine Learning when you need to analyze and predict future outcomes and for maximum flexibility
+
+## Knowledge check
+1. You need to predict future behavior on previous actions. Which product option should you select as a candidate? -> Azure Machine Learning
+2. You need to create a human-computer interface that uses natural language to answer customer questions. Which product option should you select as a candidate? -> Azure Bot Services
+3. You need to identify the content of product images to automatically create alt tags for images formatted properly. Which product option is the best candidate? -> Azure Cognitive Services
+
+## Serverless computing technologies
+Serverless computing is a term used to describe an execution environment that's set up and managed for you.
+
+## Identify the product options
+1. Azure Functions: Stateless code first solution that runs when a certain event is triggered (HTTP request, schedule, etc) without need of setting up or maintaining any infrastructure
+2. Azure Logic Apps: Low-code/no-code development platform for automating and orchestrating business processes and workflows
+
+## Knowledge check
+1. You need to process messages from a queue, parse them by using some existing imperative login written in Java, and then send them to a third-party API. Which serverless option should you choose? -> Azure Functions (you can use existing code)
+2. You want to orchestrate a workflow by using APIs from several well-known services. Which is the best option for this scenario? -> Azure Logic Aps (best for orchestrating work flows)
+3. Your team has limited experience with writing custom code, but it sees tremendous value in automating several important business processes. Which of the following options is your team's best option? -> Azure Logic Apps (minimal code needed)
