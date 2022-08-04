@@ -16,12 +16,18 @@
 
  The purpose of this page is to combine the content from the learning modules listed above into one place.
 
+<hr>
+<hr>
+
 ## Part 1: Core Azure Concepts
 ### Covers:
 - Benefits of cloud computing and how it can save you time and money
 - Cloud concepts such as high availability, scalability, elasticity, agility, and disaster recovery
 - Core Azure architecture components such as subscriptions, management groups, resources and resource groups
 - Summary of geographic distribution concepts such as Azure regions, region pairs, and availability zones
+
+<hr>
+<hr>
 
 ## Part 2: Core Azure Services
 ### Covers:
@@ -30,6 +36,8 @@
 - Azure db services such as Azure Cosmos DB, Azure SQL, Azure Database for MySQL, Azure Database for PostgresSQL, and Azure's big data and analysis services
 - Azure networking resources such as Virtual Networks, VPN Gateways, and Azure ExpressRoute
 - Azure storage services such as Azure Blob Storage, Azure Disk Storage, and Azure File Storage
+
+<hr>
 
 ## Azure Storage account fundamentals
 - Stores files, messages, tables and other types of information
@@ -101,6 +109,8 @@ The following considerations apply to the different access tiers:
 1. What is the first step that you would take in order to share an image file as a blob in Azure Storage? -> Create an Azure Storage account
 2. Which Azure Storage option is better for storing data for backup and restore, disaster recovery, and archiving? -> Azure Blob Storage
 
+<hr>
+
 ## Explore Azure Cosmos DB
 - Globally distributed, multi-model database service
 - Can elastically and independently scale throughput and storage across any number of regions
@@ -162,6 +172,8 @@ Available in two deployment options:
 ### Migration
 <img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-database-fundamentals/media/migration-process-flow-small-a899c59c.png">
 
+<hr>
+
 ## Explore big data and analytics
 Microsoft Azure supports a broad range of technologies and services that provide big data and analytic solutions such as:
 - Azure Synapse Analytics
@@ -195,6 +207,8 @@ Microsoft Azure supports a broad range of technologies and services that provide
 1. Your development team is interested in writing Graph-based applications that take advantage of the Gremlin API. Which option would be ideal for that scenario? -> Azure Cosmos DB (supports SQL, MongoDB, Cassandra, Tables, and Gremlin APIs)
 2. What is a good option for migrating a LAMP stack? -> Azure Database for MYSQL
 3. What would be a good tool for analyzing millions of log entries? -> Azure Synapse Analytics (good for analyzing large volumes of data)
+
+<hr>
 
 ## Azure Virtual Network Fundamentals
 Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other. They are like extensions of your on-premises network with resources that link other Azure resources.
@@ -373,6 +387,9 @@ Supports the following models that you can use to connect your on-premises netwo
 3. Which of the following options can you use to link virtual networks? -> Virtual network peering
 4. Which of the following options isn't a benefit of ExpressRoute? -> Encrypted network communication
 
+<hr>
+<hr>
+
 ## Part 3: Core Solutions and Management Tools
 ### Covers:
 - Azure Artificial Intelligence services
@@ -381,6 +398,8 @@ Supports the following models that you can use to connect your on-premises netwo
 - Azure management tools
 - Serverless computing technologies
 - IoT services
+
+<hr>
 
 ## IoT services
 
@@ -417,6 +436,8 @@ Comes in three parts:
 1. A company wants to build a new voting kiosk for sales to governments around the world. Which IoT technologies should the company choose to ensure the highest degree of security? -> Azure Sphere (best for security)
 2. A company wants to quickly manage its individual IoT devices by using a web-based user interface. Which IoT technology should it choose? -> IoT Central (best for GUI stuff)
 3. You want to send messages from the IoT device to the cloud and vice versa. Which IoT technology can send and receive messages? -> IoT Hub (base functionality)
+
+<hr>
 
 ## Artificial Intelligence services
 
@@ -476,6 +497,8 @@ Can be divided into the following categories:
 2. You need to create a human-computer interface that uses natural language to answer customer questions. Which product option should you select as a candidate? -> Azure Bot Services
 3. You need to identify the content of product images to automatically create alt tags for images formatted properly. Which product option is the best candidate? -> Azure Cognitive Services
 
+<hr>
+
 ## Serverless computing technologies
 Serverless computing is a term used to describe an execution environment that's set up and managed for you.
 
@@ -487,3 +510,24 @@ Serverless computing is a term used to describe an execution environment that's 
 1. You need to process messages from a queue, parse them by using some existing imperative login written in Java, and then send them to a third-party API. Which serverless option should you choose? -> Azure Functions (you can use existing code)
 2. You want to orchestrate a workflow by using APIs from several well-known services. Which is the best option for this scenario? -> Azure Logic Aps (best for orchestrating work flows)
 3. Your team has limited experience with writing custom code, but it sees tremendous value in automating several important business processes. Which of the following options is your team's best option? -> Azure Logic Apps (minimal code needed)
+
+<hr>
+
+## Software development process tools and services
+There are three primary offerings, each of which is aimed at a specific audience and use case.
+
+1. Azure DevOps Services -> for enterprise scale software development, contains repos, pipelines, wikis, boards, and artifacts
+2. GitHub and GitHub Actions -> lightweight version of ADO with Kanban boards, actions (which are like pipelines), widely used and supported by open-source community, appropriate for teams and individuals
+3. Azure DevTest Labs -> provides automated means of managing the process of building, setting up, and tearing down VMs.
+
+- Need to automate the creation and management of a test environment -> use Azure DevTest Labs
+- Building open-source software -> use GitHub
+- Need high permission granularity -> use Azure DevOps
+- Need sophisticated project management and reporting -> use Azure DevOps
+
+## Knowledge check
+1. Which of the following choices would not be used to automate a CI/CD process? -> Azure Boards
+2. Which service could help you manage the VMs that your developers and testers need to ensure that your new app works across various operating systems? -> Azure DevTest Labs
+3. Which service lacks features to assign individual developers tasks to work on? -> Azure Pipelines
+
+<hr>
