@@ -103,6 +103,99 @@ The following considerations apply to the different access tiers:
 
 ## Explore Azure Cosmos DB
 - Globally distributed, multi-model database service
+- Can elastically and independently scale throughput and storage across any number of regions
+- Provides fast, single-digit-millisecond data access using any of the popular APIs
+- Provides comprehensive service level agreements for throughput, latency, availability, and consistency guarantees
+- Supports schemaless data, 
+- Stores data at the lowest level in atom-record-sequence (ARS) format, which is then abstracted and projected as an API
+- Choose from SQL, MongoDB, Cassandra, Tables, and Gremlin
+
+## Explore Azure SQL Database
+- Relational database based on latest stable version of Microsoft SQL Server db engine
+- High-performance, reliable, fully managed, secure
+- Can be used to build data-driven applications and websites in the programming language of your choice without need to manage infrastructure
+
+### Features
+- Is a platform as a service (PaaS) db engine
+- Handles most database-management functions (upgrading, patching, backups, monitoring) without user involvement
+- Provides 99.99 percent availability
+- Microsoft handles all updates to the SQL and operating system code
+- Lets you process both relational and non-relational structures
+
+### Migration
+- Can migrate existing SQL Server databases with minimal downtime using Azure Database Migration Service
+
+## Explore Azure database for MySQL
+- Relational db based on MySQL Community Edition engine versions 5.6, 5.7, and 8.0
+- 99.99 percent availability SLA
+- Built-in security, fault tolerance and data protection at no additional cost
+- Allows point-in-time restore to recover a server to an earlier state, as far back as 35 days
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-database-fundamentals/media/azure-db-for-mysql-conceptual-diagram-02e2a10a.png">
+
+## Explore Azure Database for PostgreSQL
+- Relational database based on community version of the open-source PostgreSQL database engine
+- Built-in high availability, simple and flexible pricing, scale on demand, automatic backups for up to 35 days, enterprise-grade security
+
+Available in two deployment options:
+
+1. Single Server
+- Built-in high availability with no additional cost (99.99 percent SLA)
+- Predictable performance with pay-as-you-go pricing
+- Vertical scale as needed, within seconds
+- Monitoring and alerting
+- Enterprise-grade security and compliance
+- Protect sensitive data at rest and in motion
+- Automatic backups for up to 35 days
+2. Hyperscale (Citus)
+- Horizontally scales queries across multiple machines by sharding
+- Query engine parallelizes incoming queries across servers for faster responses
+- For applications that require greater scale and performance, (100+ GB of data)
+- Supports multi-tenant applications, real-time analytics
+
+## Explore Azure SQL Managed Instance
+- Provides broadest SQL Server engine capability with all benefits of a fully managed platform as a service
+- 99.99% uptime SLA
+- Automated backups and configurable backup retention period
+- Similar to Azure SQL Database, but this provides options to available to Azure SQL Database (like Cryllic characters for collation)
+
+### Migration
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-database-fundamentals/media/migration-process-flow-small-a899c59c.png">
+
+## Explore big data and analytics
+Microsoft Azure supports a broad range of technologies and services that provide big data and analytic solutions such as:
+- Azure Synapse Analytics
+- Azure HDInsight
+- Azure Databricks
+- Azure Data Lake Analytics
+
+### Azure Synapse Analytics
+- Formally known as Azure SQL Data Warehouse
+- Limitless analytics service that brings together enterprise-data warehousing and big-data analytics
+- Query data on your terms with using either serverless or provisioned resources at scale
+- Unified experience for ingesting, preparing, managing, and serving data for immediate business intelligence and machine learning needs
+
+### Azure HDInsight
+- Fully managed, open source analytics service for enterprises
+- Cloud service that makes it easier, faster, and more cost-effective to process massive amounts of data
+- Can run popular open-source frameworks and create cluster types such as Apache Spark, Apache Hadoop, Apache Kafka, Apache HBase, Apache Storm, and Machine Learning Services
+- Supports extraction, transformation, loading (ETL), data warehousing, machine learning, and IoT
+
+### Azure Databricks
+- Helps unlock insights from all your data nd build artificial intelligent solutions
+- Supports Python, Scala, R, Java, and SQL as well as data science frameworks and libraries including TensorFlow, PyTorch, and scikit-learn
+
+### Azure Data Lake Analytics
+- On-demand analytics job service that simplifies big data
+- Write queries to transform your data and extract insights
+- Can handle jobs of any scale instantly for setting the dial for how much power you need
+- Only pay for your job when it's running
+
+## Knowledge check
+1. Your development team is interested in writing Graph-based applications that take advantage of the Gremlin API. Which option would be ideal for that scenario? -> Azure Cosmos DB (supports SQL, MongoDB, Cassandra, Tables, and Gremlin APIs)
+2. What is a good option for migrating a LAMP stack? -> Azure Database for MYSQL
+3. What would be a good tool for analyzing millions of log entries? -> Azure Synapse Analytics (good for analyzing large volumes of data)
+
 ## Azure Virtual Network Fundamentals
 Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other. They are like extensions of your on-premises network with resources that link other Azure resources.
 
