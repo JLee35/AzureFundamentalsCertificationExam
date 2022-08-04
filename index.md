@@ -25,12 +25,85 @@
 
 ## Part 2: Core Azure Services
 ### Covers:
-- Benefits of cloud computing and how it can save you time and money
-- Cloud concepts such as high availability, scalability, elasticity, agility, and disaster recovery
-- Core Azure architecture components such as subscriptions, management groups, resources and resource groups
-- Summary of geographic distribution concepts such as Azure regions, region pairs, and availability zones
+- Services available in Azure including compute, network, storage, and database
+- Virtualization services such as Azure VMs, Azure Container Instances, Azure Kubernetes Service, and Azure Virtual Desktop
+- Azure db services such as Azure Cosmos DB, Azure SQL, Azure Database for MySQL, Azure Database for PostgresSQL, and Azure's big data and analysis services
+- Azure networking resources such as Virtual Networks, VPN Gateways, and Azure ExpressRoute
+- Azure storage services such as Azure Blob Storage, Azure Disk Storage, and Azure File Storage
 
-### Azure Virtual Network Fundamentals
+## Azure Storage account fundamentals
+- Stores files, messages, tables and other types of information
+- Used by infrastructure as a service virtual machines, and platform as a service cloud services
+- Must first create an Azure Storage account to store your data objects
+- Can create an Azure Storage account by using Azure portal, PowerShell, or the Azure CLI.
+
+Note: Azure VMs use Azure Disk Storage to store virtual disks. However, you can't use Azure Disk Storage to store a disk outside of a virtual machine.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-storage-fundamentals/media/account-container-blob-4da0ac47.png">
+
+A storage account provides a unique namespace for your Azure Storage data, that's accessible from anywhere in the world over HTTP or HTTPS. Data in this account is secure, highly available, durable, and massively scalable.
+
+## Disk storage fundamentals
+- Disk storage provides disks for Azure virtual machines
+- Apps and services have access to these disks as needed
+- Allows data to be persistently stored and accessed from an attached virtual hard disk
+- Could be SSD or HDD depending on performance tiers
+
+## Azure Blob storage fundamentals
+- Object storage solution for the cloud
+- Can store massive amounts of data, such as text or binary data
+- Unstructured, no restrictions on the kinds of data it can hold
+- Manage thousands of simultaneous uploads, video data, log files
+- Can be reached from anywhere with an internet connection
+- Not limited to common file formats
+
+Ideal for:
+- Serving images or documents directly to a browser
+- Storing files for distributed access
+- Streaming video and audio
+- Storing data for backup and restore, disaster recovery, and archiving
+- Storing data for analysis by an on-premises or Azure-hosted service
+- Storing up to 8 TB of data for virtual machines
+
+You can store blobs in containers for better organization.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-storage-fundamentals/media/account-container-blob-4da0ac47.png">
+
+## Azure Files fundamentals
+- Fully managed and accessible via the industry standard Server Message Block and Network File System (preview) protocol
+- Can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS
+- Applications running in Azure VMs or cloud services can mount a file story share to access file data, just as a desktop application would mount a typical SMB share
+- Any number of VMs or roles can mount and access the file storage simultaneously
+
+Good for the following situations:
+- Many on-premises applications use file shares
+- Store configuration files on a file share and access them from multiple VMs
+- Write data to a file share, and process or analyze the data later
+
+Azure Files ensures the data is encrypted at rest, and the SMB protocol ensures the data is encrypted in transit. You share the file via a URL, and you can use Shared Access Signature (SAS) tokens to allow access to a private asset for a specific amount of time.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/azure-storage-fundamentals/media/sas-storage-uri-037308fa.png">
+
+## Understand Blob access tiers
+Azure provides several access tiers, which you can use to balance your storage costs with your access needs:
+
+- Hot access tier: Optimized for storing data that is access frequently (website images)
+- Cool access tier: Optimized for storing data that in infrequently access and stored for at least 30 days
+- Archive access tier: For data that is rarely access and stored for at least 180 but allows for flexible latency requirements
+
+The following considerations apply to the different access tiers:
+- Only the hot and cool access tiers can be set at the account level
+- All tiers can be set at the blob level, during upload or after upload
+- Cool access data can tolerate slightly lower availability but still requires high durability, retrieval latency, and throughput similar ot hot
+- Archive storage stores data offline and is the cheapest, but highest cost to rehydrate and access data
+
+## Knowledge check
+1. What is the first step that you would take in order to share an image file as a blob in Azure Storage? -> Create an Azure Storage account
+2. Which Azure Storage option is better for storing data for backup and restore, disaster recovery, and archiving? -> Azure Blob Storage
+
+## Explore Azure Cosmos DB
+- Globally distributed, multi-model database service
+## Azure Virtual Network Fundamentals
 Azure virtual networks enable Azure resources, such as VMs, web apps, and databases, to communicate with each other. They are like extensions of your on-premises network with resources that link other Azure resources.
 
 Provide the following key network capabilities:
@@ -206,4 +279,13 @@ Supports the following models that you can use to connect your on-premises netwo
 2. Tailwind Traders wants to use Azure ExpressRoute to connect its on-premises network to the Microsoft cloud. Which of the following choices isn't an ExpressRoute model that Tailwind Traders can use? -> Site-to-site virtual private network
 3. Which of the following options can you use to link virtual networks? -> Virtual network peering
 4. Which of the following options isn't a benefit of ExpressRoute? -> Encrypted network communication
+
+## Part 3: Core Solutions and Management Tools
+### Covers:
+- Azure Artificial Intelligence services
+- Software development process tools and services
+- Cloud monitoring services
+- Azure management tools
+- Serverless computing technologies
+- IoT services
 
