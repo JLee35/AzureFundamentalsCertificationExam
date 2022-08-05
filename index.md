@@ -531,3 +531,291 @@ There are three primary offerings, each of which is aimed at a specific audience
 3. Which service lacks features to assign individual developers tasks to work on? -> Azure Pipelines
 
 <hr>
+
+## Azure management tools
+At a high level, there are two broad categories of management tools: visual tools and code-based tools.
+
+- Azure portal: web-based user interface to view all the services you're using, create and configure services and view reports
+- Azure mobile app: Mobile version of Azure portal allowing for monitoring health and status of resources, checking for alerts and running Azure CLI and PowerShell commands
+- Azure PowerShell: execute cmdlets which call Azure's Rest API to perform management tasks
+- Azure CLI: executable program for executing commands in Bash which call Azure Rest API to perform management tasks
+- ARM templates: Azure Resource Manager templates describe the resources you want to use in a declarative JSON format which is verified before any code is executed to ensure correct functionality
+
+### Selecting which tool to use
+- Want a visual tool for one-off actions -> use Azure Portal
+- Want a repeatable Windows-like tool for one-off actions -> Use Azure PowerShell
+- Want a repeatable Linux-like tool for one-off actions -> Use Azure CLI
+- Want to be able to monitor and triage while mobile -> User Azure mobile app
+- Want to create many resources in parallel with dependencies -> Use ARM templates
+
+## Knowledge check
+1. As an administrator, you need to retrieve the IP address from a particular VM by using Bash. What tool should you use? -> Azure CLI
+2. You're a developer who needs to set up your first VM to host a process that runs nightly. What tool should you use? -> Azure portal
+3. What is the best infrastructure-as-code option for quickly and reliably setting up your entire cloud infrastructure declaratively? -> ARM templates
+
+<hr>
+
+## Cloud monitoring services
+There are three primary Azure monitoring services:
+
+1. Azure Advisor
+2. Azure Monitor
+3. Azure Service Health
+
+### Azure Advisor
+- Evaluates your Azure resources and makes recommendations to help improve reliability, security, performance, and reduce costs
+- Designed to help you save time on cloud optimization
+- Recommendation service includes suggested actions 
+- Recommendations available via the Azure portal and the API
+
+The recommendations are divided into five categories:
+1. Reliability: ensure and improve the continuity of your business-critical applications
+2. Security: detect threats and vulnerabilities that might lead to security breaches
+3. Performance: improve the speed of your applications
+4. Cost: optimize and reduce your overall Azure spending
+5. Operational Excellence: achieve process and workflow efficiency, resource manageability, and develop best practices
+
+### Azure Monitor
+- Platform for collecting, analyzing, visualizing, and potentially taking action
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/monitoring-fundamentals/media/2-identify-product-options-01.png">
+
+### Azure Service Health
+- Provides personalized view of the health of Azure services, regions, and resources
+- See [status.azure.com](https://status.azure.com) for major issues that broadly affect Azure customers
+- Displays both major and smaller, localized issues that affect you
+- After an outage, provides incident reports (root cause analyses)
+
+Service Health helps you keep an eye on several event types:
+- Service issues with Azure
+- Planned maintenance
+- Health advisories
+
+## Selecting which tool to use
+- Need an analysis of your deployed resources? -> Use Azure Advisor
+- Need to keep tabs on Azure itself? -> Use Azure Service Health
+- Need to measure custom custom events alongside other collected telemetry data? -> Use Azure Monitor
+- Need to set up alerts for outages or when autoscaling is about to deploy new instances? -> Use Azure Monitor
+
+## Knowledge check
+1. You want to be alerted when new recommendations to improve your cloud environment are available. Which service will do this? -> Azure Advisor
+2. Which service provides official outage root cause analyses (RCAs) for Azure incidents? -> Azure Service Health
+3. Which service is a platform what powers Application Insights, monitoring for VMs, containers, and Kubernetes? -> Azure Monitor
+
+<hr>
+<hr>
+
+## Part 4: General security and network security features
+### Covers
+- Azure Security Center
+- Azure Sentinel
+- Azure Key Vault
+- Azure Dedicated Host
+
+<hr>
+
+## Protect against security threats by using Azure Security Center
+Monitoring service that provides visibility of your security posture across all your services (on-prem and Azure)
+
+Can:
+- Monitor security settings across on-prem and cloud workloads
+- Automatically apply required security settings to new resources as they come online
+- Provide security recommendations based on current configs, resources, and networks
+- Continuously monitor your resources and perform automatic security assessments to identify potential vulnerabilities before they can be exploited
+- Use machine learning to detect and block malware from being installed on your VMs and other resources
+- Detect and analyze potential inbound attacks and investigate threats
+- Provide just-in-time access control for network ports
+
+Example of what you might see in Azure Security Center:
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/protect-against-security-threats-azure/media/2-security-center-compliance-32866f57.png">
+
+**Resource security hygiene** shows the health of services from a security perspective, with remedial action recommendations categorized as low, medium and high.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/protect-against-security-threats-azure/media/2-security-center-dashboard-4d9c56a4.png">
+
+ **Secure score** is a measurement of an organization's security posture based on security controls, or groups of related security recommendations. Score is based on percentage of security controls that you satisfy. 
+
+### Protect against threats
+Security center includes advanced cloud defense capabilities for VMs, network security, and file integrity.
+
+- **Just-in-time VM access** blocks traffic by default to specific network ports of VMs but allows traffic for a specific time when an admin requests and approves it
+- **Adaptive application controls** allows for controlling with applications are allowed to run on its VMs.
+- **Adaptive network hardening** monitors network traffic patterns for VMs and compares those to the company's current network security group (NSG) settings.
+- **File integrity monitoring** allows for configuring and monitoring changes of important files on both Windows and Linux, registry settings, applications, etc.
+
+### Respond to security alerts
+Security Center is a centralized view of all its security alerts. From here you can dismiss false alerts, investigate further, remediate alerts manually, or use an automated response with a workflow automation.
+
+<hr>
+
+## Detect and respond to security threats by using Azure Sentinel
+Azure Sentinel is Microsoft's cloud-based security information and event management (SIEM) system.
+
+Azure Sentinel enables you to:
+- **Collect cloud data at scale** across all users, devices, applications, and infrastructure both on-premises and from multiple clouds
+- **Detect previously undetected threats** with comprehensive analytics and threat intelligence
+- **Investigate threats with artificial intelligence** by examining suspicious activities at scale
+- **Respond to incidents rapidly** using built-in orchestration and automation of common tasks
+
+### Connect your data sources
+Azure Sentinel supports a number of data sources, which it can analyze for security events.
+
+- **Connect Microsoft solutions** like Microsoft Threat Protection solutions, Microsoft 365 solutions, Azure Active Directory, and Windows Defender Firewall
+- **Connect other services and solutions** like AWS CloudTrail, Citrix Analytics, Sophos XG Firewall, VMware Carbon Black Cloud, and Okta SSO
+- **Connect industry-standard data sources** like Common Event Format (CEF), Syslog, or REST API
+
+## Detect threats
+Use both built-in analytics and custom rules to detect threats.
+
+**Built-in analytics** use templates designed by Microsoft's security team, which can be customized
+**Custom analytics** are rules you crate to search for specific criteria in your environment
+
+### Investigate and respond
+When Azure Sentinel detects suspicious events, you can investigate alerts or incidents (group of related alerts) with an investigation graph.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/protect-against-security-threats-azure/media/3-investigate-incidents-54765923.png">
+
+**Azure Workbooks** allows for automating responses to threats, by opening a ticket in a reporting system, sending Teams or Slack messages, or emails with block or ignore options for a specific IP.
+
+<hr>
+
+## Store and manage secrets by using Azure Key Vault
+A centralized cloud service for storing an apps secrets in a single, central location.
+
+It can:
+- **Manage secrets** access tokens, passwords, certificates, API keys, and other secrets
+- **Manage encryption keys** as a key management solution
+- **Manage SSL/TLS certificates** provision, manage, and deploy your public ans private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for both your Azure resources and your internal resources
+- **Store secrets backed by hardware security modules (HSMs)** which can be protected either by software or FIPS 140-2 Level 2 validated HSMs
+
+<hr>
+
+## Azure Dedicated Host
+Provides dedicated physical servers to host your Azure VMs for Windows and Linux.
+
+### Benefits
+- Visibility into, and control over the server infrastructure that's running your Azure VMs
+- Helps address compliance requirements by deploying your workloads on an isolated server
+- Lets you choose the number of processors, server capabilities, VM series, and VM sizes within the same host
+
+### Availability considerations for Dedicated Host
+For high availability, you can provision multiple hosts in a host group, and deploy your VMs across this group. VMs on dedicated hosts can also take advantage of maintenance control. This feature enables you to control when regular maintenance updates occur, within a 35-day rolling window.
+
+### Pricing considerations
+You're charged per dedicated host, independent of how many VMs you deploy to it. The host price is based on the VM family, type (hardware size), and region.
+
+<hr>
+
+## Summary
+- Azure Security Center provides visibility of your security posture across all your services, both on Azure and on-premises
+- Azure Sentinel aggregates security data from many different sources, and provides additional capabilities for threat detection and response
+- Azure Key Vault stores your application's secrets, such as passwords, encryption keys, and certificates, in a single, central location
+- Azure Dedicated Host provides dedicated physical servers to host your Azure VMs for Windows and Linux
+
+<hr>
+
+## Secure network connectivity on Azure
+
+### What is defense in depth?
+The objective of defense in depth is to protect information and prevent it from being stolen by those who aren't authorized to access it.
+
+### Layers of defense in depth
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/secure-network-connectivity-azure/media/2-defense-depth.png">
+
+Role of each layer:
+- Physical security protects hardware
+- Identity and access layer controls access to infrastructure and change control
+- Perimeter layer users DDoS protection to filter large-scale attacks before they can cause a denial of service for users
+- Network layer limits communication between resources through segmentation and access controls
+- Compute layer secures access to virtual machines
+- Application layer helps that applications are secure and free from vulnerabilities 
+- Data layer controls access to business and customer data that you need to protect
+
+### Security posture
+The common principals used to define a security posture are confidentiality, integrity, and availability, known collectively as CIA.
+
+- **Confidentiality**: The principal of least privilege means restricting access to information only to individuals explicitly granted access, at only the level that they need to perform their work. This includes protection of user passwords, email content, and access levels to applications and underlying infrastructure.
+- **Integrity**: Prevent unauthorized changes to information, at rest and in transit. This can be implemented via a one-way hashing algorithm.
+- **Availability**: Ensure services are functioning and can be accessed only by authorized users.
+
+<hr>
+
+## Protect virtual networks by using Azure Firewall
+Azure Firewall is a managed, cloud-based network security service that helps protect resources in your Azure virtual networks.
+
+- Is stateful, which analyzes the complete context of a network connectivity, not just an individual package of network traffic, and has high-availability and unrestricted cloud scalability
+- Provides a central location to create, enforce, and log application and network connectivity polices across subscriptions and virtual networks
+- Uses a static public IP address for your virtual network resources, which enables outside firewalls to identify traffic coming form your virtual network
+- Integrated with Azure Monitor to enable logging and analytics
+
+Features:
+- Built-in high availability
+- Unrestricted cloud scalability
+- Inbound and outbound filtering rules
+- Inbound Destination Network Address Translation (DNAT) support
+- Azure Monitor logging
+
+### Configuration
+With Azure Firewall, you can configure:
+- Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet
+- Network rules that define source address, protocol, destination port, and destination address
+- Network Address Translation (NAT) rules that define destination IP addresses and ports to translate inbound requests
+
+Azure Application Gateway also provides a firewall that's called the web application firewall (WAF). WAF provides centralized, inbound protection for your web applications against common exploits and vulnerabilities.
+
+<hr>
+
+## Protect from DDoS attacks by using Azure DDoS Protection
+Azure DDos Protection (Standard) helps protect your Azure resources from DDoS attacks.
+
+- Identifies the attacker's attempt to overwhelm the network and blocks further traffic from them, makes sure they don't reach your resources
+- Legitimate traffic from customers still flows without any interruption
+- Can also help you manage your cloud consumption
+
+### Service tiers available to DDoS Protection
+- **Basic**: automatically enabled for free as part of your Azure subscription with always-on traffic monitoring
+- **Standard**: provides additional mitigation capabilities that are tuned specifically to Azure Virtual Network resources
+
+### What kinds of attacks can DDoS Protection help prevent?
+The standard service tier can help prevent:
+- Volumetric attacks
+- Protocol attacks
+-Resource-layer (application-layer) attacks (only with application firewall)
+
+<hr>
+
+## Filter network traffic by using network security groups
+A way to protect internal networks on Azure with network security groups (NSGs).
+
+### What are network security groups?
+- Enables you to filter network traffic to and from Azure resources within an Azure virtual network
+- Like an internal firewall, containing multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol
+
+### How do I specify NSG rules?
+When you create a network security group, Azure creates a series of default rules to provide a baseline level of security. You can't remove default rules, but ou can override them by creating new rules with higher priorities.
+
+<hr>
+
+## Combine Azure services to create a complete network security solution
+Here are some recommendations on how to combine Azure services to create a complete network security solution.
+
+### Secure the perimeter layer
+The perimeter layer is about protecting your organization's resources from network-based attacks. To do this:
+- Use Azure DDoS Protection to filter large-scale attacks before they can cause a denial of service for users
+- Use perimeter firewalls with Azure Firewall to identify and alert on malicious attacks against your network
+
+### Secure the network layer
+At this layer, the focus is on limiting network connectivity across all your resources to allow only what's required.
+
+- Limit communication between resources by segmenting your network and configuring access controls
+- Deny by default
+- Restrict inbound internet access and limit outbound where appropriate
+- Implement secure connectivity to on-premises networks
+
+### Combine services
+You can combine Azure networking and security services to manage your network security and provide increased layered protection. Here are two ways you can combine services:
+
+- **Network security groups and Azure firewall**: Together these provide better defense-in-depth network security
+- **Azure Application Gateway web application firewall and Azure Firewall**
