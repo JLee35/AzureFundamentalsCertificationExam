@@ -1156,3 +1156,286 @@ There are several services and features in Azure to support these efforts:
 - Resource tags provide extra information, or metadata, about your resources
 - Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources
 - Azure Blueprints enables you to define a repeatable set of governance tools and standard Azure resources that your organization requires
+
+<hr>
+<hr>
+
+## Examine privacy, compliance, and data protection standards on Azure
+
+### Which compliance categories are available on Azure?
+Here are some of the more popular compliance offerings that are available on Azure.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/examine-privacy-compliance-data-protection-standards/media/2-compliance-matrix-383090ad.png">
+
+<hr>
+
+## Access the Microsoft Privacy Statement, the Online Services Terms, and the Data Protection Addendum
+
+**Microsoft Privacy Statement**: explains what personal data Microsoft collects, how Microsoft uses it, and for what purposes. This covers all of Microsoft's services, websites, apps, software, servers, and devices.
+
+**Online Services Terms**: a legal agreement between Microsoft and the customer. It details the obligations by both parties with respect to the processing and security of customer and personal data. It applies specifically to Microsoft's online services that you license through a subscription, including Azure, Dynamics 365, Office 365, and Bing Maps.
+
+**Data Protection Addendum**: further defines the data processing and security terms for online services. These terms include:
+- Compliance with laws
+- Disclosure of processed data
+- Data Security, which includes security practices and policies, data encryption, data access, customer responsibilities, and compliance with auditing
+- Data transfer, retention, and deletion
+
+To access the DPA:
+1. Go to the Licensing Terms and Documentation
+2. In the search bar, enter **DPA**
+3. From the search results, local the link to the DPA in your preferred language. Alternatively, in the search bar that appears, enter your preferred language to filter the results
+
+<hr>
+
+## Explore the Trust Center
+The Trust Center showcases Microsoft's principles for maintaining data integrity in the cloud and how Microsoft implements and supports security, privacy, compliance, and transparency in all Microsoft cloud products and services. The Trust Center is an important part of the Microsoft Trust Cloud Initiative and provides support for resources for the legal and compliance community.
+
+The Trust Center provides:
+- In-depth information about security, privacy, compliance offerings, policies, features, and practices across Microsoft cloud products
+- Additional resources for each topic
+- Links to the security, privacy, and compliance blogs and upcoming events
+
+<hr>
+
+## Access Azure compliance documentation
+The Azure compliance documentation provides you with detailed documentation about legal and regulatory standards and compliance on Azure.
+
+Here you find compliance offerings across these categories:
+- Global
+- US government
+- Financial services
+- Health
+- Media and manufacturing
+- Regional
+
+There are also additional compliance resources, such as audit reports, privacy information, compliance implementations and mappings, and white papers and analyst reports. Country and region privacy and compliance guidelines are also included. Some resources might require you to be signed in to your cloud service to access them.
+
+<hr>
+
+## What is Azure Government?
+Azure Government is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of US federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
+
+Azure Government services handle data that is subject to certain government regulations and requirements:
+- Federal Risk and Authorization Management Program (FedRAMP)
+- National Institute of Standards and Technology 
+- International Traffic in Arms Regulations (ITAR)
+- Internal Revenue Service (IRS) 1075
+- Department of Defense (DoD) L4
+- Criminal Justice Information Service (CJIS)
+
+To provide the highest level of security and compliance, Azure Government uses physically isolated datacenters and networks located only in the U.S. Azure Government customers, such as US federal, state, and local government or their partners, and subject to validation of eligibility. Azure Government provides the broadest compliance and Level 5 DoD approval and is available in eight geographies.
+
+<hr>
+
+## What is Azure China 21Vianet?
+
+It's a physically separated instance of cloud services located in China. Azure China 21Vianet is independently operated and transacted by Shanghai Blue Cloud Technology Co.
+
+### Azure products and services available in China
+The Azure services are based on the same Azure, Office 365, and Power BI technologies that make up the Microsoft global cloud service, with comparable service levels. Azure agreements and contracts in China, where applicable, are signed between customers and 21Vianet.
+
+<hr>
+
+## Knowledge check
+1. Where can the team access details about the personal data Microsoft processes and how the company processes it, including Cortana? -> Microsoft Privacy Statement
+2. Where can the legal team access information around how the Microsoft cloud helps them secure sensitive data and comply with applicable laws and regulations? -> Trust Center
+3. Where can the IT department find reference blueprints that it can apply directly to its Azure subscriptions? -> Azure compliance documentation
+
+<hr>
+
+## Summary
+- The Microsoft Privacy Statement provides trust in how Microsoft collects, protects, and uses customer data
+- The Trust Center provides you with documentation about compliance standards and how Azure can support your business
+- The Azure compliance documentation includes detailed information about legal and regulatory standards and compliance on Azure
+
+<hr>
+<hr>
+
+## Part 6: Describe Microsoft Cost Management and service level agreements
+
+## Compare costs by using the Total Cost of Ownership Calculator
+
+### What's the TCO Calculator?
+The TCO Calculator helps you estimate the cost savings of operating your solution on Azure over time compared to operating in your on-premises datacenter.
+
+With the TCO Calculator, you'll enter the details of your on-premises workloads. Then you can review the suggested industry-average cost (which you can adjust) for related operational costs. These costs include electricity, network maintenance, and IT labor. 
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/plan-manage-azure-costs/media/2-tco-report-bar-graphs.png">
+
+Note: You don't need an Azure subscription to work with the TCO Calculator.
+
+### How does the TCO Calculator work?
+Working with the TCO Calculator involves three steps:
+
+1. Define your workloads
+2. Adjust assumptions
+3. View the report
+
+### Step 1: Define your workloads
+First, you'll enter the specifications of your on-premises infrastructure into the TCO Calculator, based on these four categories:
+
+- **Servers**: includes operating systems, virtualization methods, CPU cores, and memory (RAM)
+- **Databases**: includes database types, server hardware, and Azure service you want to use, which includes the expected maximum concurrent user sign-ins
+- **Storage**: includes storage type and capacity, which includes any backup or archive storage
+- **Networking**: includes the amount of network bandwidth you current consume in your on-premises environment
+
+### Step 2: Adjust assumptions
+Next, you'll specify whether your current on-premises licenses are enrolled for Software Assurance, which can save you money by reusing those licenses on Azure. You'll also specify whether you need to replicate your storage to another Azure region for greater redundancy.
+
+Then, you can see key operating cost assumptions across several different areas such as:
+- Electricity price per kilowatt hour (KWh)
+- Hourly pay rate for IT administration
+- Network maintenance cost as a percentage of network hardware and software costs
+
+## Step 3: View the report
+Choose a timeframe between one and five years. The TCO Calculator generates a report that's based on the information you've entered.
+
+<hr>
+
+## Purchase Azure services
+
+### What types of Azure subscriptions can I use?
+Azure subscription provides you with access to Azure resources such as VMs, storage, and databases. The types of resources you use affect your monthly bill.
+
+Azure offers both free and paid subscription options to fit your needs and requirements.
+
+- **Free trial**: provides you with 12 months of popular free services, a credit to explore any Azure service for 30 days, and more than 25 services that are always free. Your Azure services are disabled when the trial ends or when your credit expires for paid products, unless you upgrade to a paid subscription.
+- **Pay-as-you-go**: lets you pay for what you use by attaching a credit or debit card to your account. Organizations can apply for volume discounts and prepaid invoicing.
+- **Member offers**: certain Microsoft products and services might provide you with credits for your Azure account, and reduced rates on Azure services.
+
+### How do I purchase Azure services?
+
+There are three main ways to purchase services on Azure. They are:
+
+- **Through an Enterprise Agreement**: Larger customers, known as enterprise customers, can sign an Enterprise Agreement with Microsoft. This agreement commits them to spending a predetermined amount on Azure services over a period of three years. The service fee is typically paid annually. As an Enterprise Agreement customer, you'll receive the best customized pricing based on the kinds and amounts of services you plan on using.
+- **Directly from the web**: Here, you can purchase Azure services directly from the Azure portal website and pay standard prices. You're billed monthly, either as a credit card payment or through an invoice. This purchasing method is known as Web Direct.
+- **Through a Cloud Solution Provider**: A CSP is a Microsoft Partner that helps you build solutions on top of Azure. Your CSP bills you for your Azure usage at a price they determine.
+
+### What factors affect cost?
+The way you use resources, your subscription type, and pricing from third-party vendors are common factors. Let's take a quick look at each.
+
+### Resource type
+A number of factors influence the cost of Azure resources. They depend on the type of resource or how you customize it.
+
+### Usage meters
+When you provision a resource, Azure creates meters to track that resource's usage. Azure uses these meters to generate a usage record that's later used to help calculate your bill.
+
+### Resource usage
+In Azure, you're always charged based on what you use. However, just because you decommission a VM doesn't mean you aren't being charged for that VM. If the VM still exists it is potentially incurring storage and hardware costs.
+
+### Does location or network traffic affect cost?
+Certain locations cost more than others, and data transfer between regions also incurs a cost.
+
+<hr>
+
+## Knowledge check
+1. Which is the best first step the team should take to compare the cost of running these environments on Azure versus in their datacenter? -> Run the Total Cost of Ownership Calculator
+2. What's the best way to ensure that the development team doesn't provision too many virtual machines at the same time? -> Apply spending limits to the development team's Azure subscription
+3. Which is the most efficient way for the testing team to save costs on virtual machines on weekends, when testers are not at work? -> Deallocate VMs when they're not in use
+4. Resources in the Dev and Test environments are each paid for by different departments. What's the best way to categorize costs by department? -> Apply a tag to each virtual machine that identifies the appropriate billing department
+
+<hr>
+
+## What are service-level agreements (SLAs)?
+A service-level agreement is a formal agreement between a service company and the customer. 
+
+### What's in a typical SLA?
+- **Introduction**: explains what to expect in the SLA, including its scope and how subscription renewals can affect the terms
+- **General terms**: contains terms that are used throughout the SLA so that both parties (you and Microsoft) have a consistent vocabulary
+- **SLA details**: defines the specific guarantees for the service, commonly measured as a percentage (99%, 99.9%, 99.95%, and 99.99%)
+
+### What are service credits?
+A service credit is the percentage of the fees you paid that are credited back to you according to the claim approval process.
+
+An SLA describes how Microsoft responds when an Azure service fails to perform to its specification. For example, you might receive a discount on your Azure bill as compensation when a service fails to perform according to its SLA.
+
+### What's the SLA for free services?
+Free products don't typically have an SLA.
+
+### How do I know when there's an outage?
+Azure status provides a global view of the health of Azure services and regions. If you suspect there's an outage, this is often a good place to start your investigation.
+
+### How can I request a service credit from Microsoft?
+Typically, you need to file a claim with Microsoft to receive a service credit. If you purchase Azure services from a Cloud Solutions Provider (CSP) partner, your CSP typically manages the claims process.
+
+Each SLA specifies the timeline by which you must submit your claim and when Microsoft processes your claim. For many services, you must submit your claim by the end of the calendar month following the month in which the incident occurred.
+
+<hr>
+
+## Design your application to meet your SLA
+When you know the required SLA uptime for your application, then you design your application to meet your SLA uptime percentage.
+
+### Identify your workloads
+A workload is a distinct capability or task that's logically separated from other tasks, in terms of business logic and data storage requirements. Each workload defines a set of requirements for availability, scalability, data consistency, and disaster recovery.
+
+### Combine SLAs to compute the composite SLA
+The process of combining SLAs helps you compute the composite SLA for a set of services. Computing the composite SLA requires that you multiply the SLA of each individual service.
+
+### What happens when your composite SLA doesn't meet your needs? 
+You might have to customize options that fit your required SLA. 
+
+<hr>
+
+## Access preview services and preview features
+As Azure develops new services, they go from the preview phase to being a generally available product integrated into Azure.
+
+### What is the service lifecycle?
+The service lifecycle defines how every Azure service is released for public use.
+
+Every Azure service starts in the development phase. In this phase, the Azure team collects and defines its requirements, and begins to build the service.
+
+Next, the service is released to the public preview phase. During this phase, the public can access and experiment with it and provide real-world feedback. 
+
+After a new Azure service has been validated and tested, it's released to all customers as a production-ready service. This is know as general availability (GA).
+
+## How can I stay updated on the latest announcements?
+The Azure updates page provides information about the latest updates to Azure products, services, and features, and product roadmaps and announcements.
+
+<hr>
+
+## Summary
+A service-level agreement (SLA) is the formal agreement between a service company and the customer. For Azure, this agreement defines the performance standards that Microsoft commits to for its customers.
+
+When defining your SLA requirements, be sure to consider both your business needs and the time it takes to restore a component after a failure. Also consider how the use of preview services and preview features might affect your systems in production.
+
+<hr>
+
+## Review
+
+1. Which Azure Active Directory (Azure AD) feature is used to provide access to resources based on organizational policies? -> Conditional Access
+2. Single sign-on is what kind of method? -> An authentication method
+3. What is the purpose for each service?
+
+- Pricing calculator -> estimates workload costs
+- TCO calculator -> estimates the cost savings by comparing datacenter costs to running the same workload on Azure
+- Cost management -> helps control, analyze, and optimize workload costs
+
+4. Which Azure service is a repeatable set of governance tools that helps development teams quickly build and create new environments while adhering to organizational compliance to speed up development and deployment? -> Azure Blueprints
+5. Match the services on the left to the correct descriptions on the right.
+
+- Infrastructure as a service (IaaS) -> Provides servers and virtual machines, storage, networks, and operating systems on a pay-as-you-go basis
+- Platform as a service (PaaS) -> Provides a fully managed environment for developing, testing, delivering, and managing cloud-based applications
+- Software as a service (SaaS) -> Provides hosting and management of an application and its underlying infrastructure, as well as any maintenance, upgrades, and security patching
+
+6. Which cloud approach is used by organizations to take full advantage of on-premises technology investments and allows data and applications to be shared between two environments? -> Hybrid cloud
+7. Which type of storage copies data to a secondary region from the primary region across multiple datacenters that are located many miles apart? -> Geo-redundant storage (GRS)
+8. Which option is used to set the communication between on-premises VPN device and an Azure VPN gateway through an encrypted tunnel over the internet? -> Site-to-Site VPN
+9. How do you organize resources in an Azure subscription? -> Resource groups
+10. Which defense in depth layer users distributed denial of service (DDoS) protection? -> Perimeter layer
+11. Which Azure serverless computing technology provides the ability to execute workflows to automate business scenarios by using triggers without writing any code? -> Azure Logic Apps
+12. What can you use to launch the Azure Cloud Shell? -> Azure portal
+13. What enables you to scale to thousands of virtual machines for high-performance and large-scale parallel jobs? -> Azure Batch
+14. Match the services on the left to the correct descriptions on the right:
+
+- Azure Resource Locks -> Prevents resources from being accidentally deleted or changed
+- Azure Blueprints -> Rapidly provisions and runs new environments with the knowledge that they are in line with the organization's compliance requirements
+- Azure Policy -> Enforces standards and assess compliance across your organization
+
+15. What enables you to provision a group of matching and load-balancing VMs in Azure? -> An Azure virtual machine scale set
+16. What in Azure enables you to deploy Azure resources close to the users? -> Geo-distribution
+17. What is supported by ExpressRoute for connecting on-premises network to Azure? -> A point-to-point Ethernet connection
+18. Which Azure feature enables you to organize multiple subscriptions in hierarchies for unified policies and compliance? -> Management groups
+19. What alerts you when service issues occur in an Azure environment, such as a regional Azure outage that affects all Azure customers? -> Azure Service Health
+20. Authorization vs Authentication? -> Authentication confirms identity of person, authorization grants the proper access to a legitimate user
+
