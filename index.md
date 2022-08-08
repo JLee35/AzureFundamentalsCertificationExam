@@ -819,3 +819,340 @@ You can combine Azure networking and security services to manage your network se
 
 - **Network security groups and Azure firewall**: Together these provide better defense-in-depth network security
 - **Azure Application Gateway web application firewall and Azure Firewall**
+
+## Knowledge check
+1. An attacker can bring down your website by sending a large volume of network traffic to your servers. Which Azure service can help Tailwind Traders protect its App Service instance from this kind of attack? -> Azure DDoS Protection
+2. What's the best way for Tailwind Trader to limit all outbound traffic from VMs to known hosts? -> Crate application rules in Azure Firewall
+3. How can Tailwind Traders most easily implement a deny by default policy so that VMs can't connect to each other? -> Create a network security group rule that prevents access from another VM on the same network
+
+<hr>
+<hr>
+
+## Part 4: Secure access to your applications by using Azure identity services
+
+## Authorization vs Authentication
+- Authentication: process of establishing the identity of the person or service that wants access
+- Authorization: process of establishing what level of access an authenticated person or service has
+
+<hr>
+
+## Azure Active Directory
+Provides identity services  that enable your users to sign in and access both Microsoft cloud applications and cloud applications that you develop.
+
+### Azure AD vs Active Directory
+Active Directory was built to be ran on-prem, Azure AD takes this functionality and applies it to the cloud.
+
+### What services does Azure AD provide?
+- **Authentication**: Verifies identity to access applications and resources as well as self-service support
+- **Single sign-on**: Enables you to remember only one username and one password to access multiple applications
+- **Application management**: Manage apps with features like Application Proxy, SaaS apps, and my My Apps portal
+- **Device management**: Azure AD supports the registration of devices
+
+<hr>
+
+## Multifactor authentication and conditional access
+
+### What's multifactor authentication?
+Process where user is prompted during sign-in for an additional form of identification (fingerprint or code on their mobile phone).
+
+Authenticates user by requiring two or more elements to fully authenticate.
+
+- **Something the user knows** like an email address and password
+- **Something the user has** like a code sent to a phone
+- **Something the user is** like a biometric property such as fingerprint or facial recognition
+
+### What's conditional access?
+- A tool that Azure Active Directory uses to allow (or deny) access to a resource based on identity signals such as who the user is, where the user is, and what device the user is requesting accessing from
+- This helps IT administrators empower users to be productive wherever and whenever and protect the organizations assets
+- Provides a more granular MFA experience for users
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/secure-access-azure-identity-services/media/4-conditional-access-signal-decision-enforcement.png">
+
+The use Conditional Access, you need an Azure AD Premium P1 or P2 license.
+
+<hr>
+
+## Knowledge check
+1. How can the IT department ensure that employees at the company's retail stores can access company applications only from approved tablet devices? -> Conditional Access
+2. How can the IT department use biometric properties, such as facial recognition, to enable delivery drivers to prove their identities? -> Multifactor authentication
+3. How can the IT department reduce the number of times user must authenticate to access multiple applications? -> SSO
+
+<hr>
+
+## Build a cloud governance strategy on Azure
+
+
+### Azure role-based access control
+Azure provides built-in roles that describe common access rules for cloud resources. You can also define your own roles.
+
+Role-based access control is applied to a scope, which is a resource or set of resources that this access applies to
+
+Scopes include:
+- A management group (a collection of multiple subscriptions)
+- A single subscription
+- A resource group
+- A single resource
+
+Kinds of users or accounts:
+- Observers
+- Users managing resources
+- Admins
+- Automated processes
+
+User Azure RBAC when you need to:
+- Allow one user to manage VMs in a subscription and other user to manage virtual networks
+- Allow a database administrator group to manage SQL databases in a subscription
+- Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
+- Allow an application to access all resources in a resource group
+
+### How is Azure RBAC enforced?
+Azure RBAC is enforced on any action that's initiated against an Azure resource that passes through Azure Resource Manager. 
+
+Azure RBAC doesn't enforce access permissions at the application or data level. Application security must be handled by your application.
+
+RBAC uses an allow model. When you're assigned a role, RBAC allows you to perform certain actions, such as read, write, or delete.
+
+### Who does Azure RBAC apply to?
+You can apply RBAC to an individual or to a group. 
+
+### How do I manage Azure RBAC permissions?
+You can access permissions on the Access control (IAM) pane in the Azure portal. This pane shows who has access to what scope and what roles apply.
+
+<hr>
+
+## Prevent accidental changes by using resource locks
+A resource lock prevents resources from being accidentally deleted or changed.
+
+### How do I manage resource locks?
+Azure portal, PowerShell, the Azure CLI, or from an Azure Resource Manager template.
+
+To view, add, or delete locks in the Azure portal, got to the **Settings** section of any resource's **Locks** pane in the Azure portal.
+
+### What levels of locking are available?
+You can apply locks to a subscription, a resource group, or an individual resource. You can set the lock level to **CanNotDelete** or **ReadOnly**.
+
+- **CanNotDelete**: means authorized people can still read and modify the resource, but they can't delete the resource without first removing the lock.
+- **ReadOnly**: means authorized people can read a resource, but they can't delete or change the resource.
+
+### How do I delete or change a locked resource?
+To modify a locked resource, you must first remove the lock. Resource locks apply regardless of RBAC permissions. Even if you're an owner of the resource, you must still remove the lock before you can perform the blocked activity.
+
+### Combine resource locks with Azure Blueprints
+To make the protection process more robust, you can combine resource locks with Azure Blueprint, which enables you to define the set of standard Azure resources that your organization requires. For example, you can define a blueprint that specifies that a certain resource lock must exist. Azure Blueprints can automatically replace the resource lock if that lock is removed.
+
+<hr>
+
+## Organize your Azure resources by using tags
+One way to organize related resources is to place them in their own subscriptions You can also use resource groups to manage related resources. Resource tags are another way to organize resources. Tags provide extra information, or metadata, about your resources. This metadata is useful for:
+- **Resource management**: Tags enable you to locate and act on resources that are associated with specific workloads, environments, business units, and owners.
+- **Cost management and optimization**: Tas enable you to group resources so that you can report on costs, allocate internal cost centers, track budgets, and forecast estimated cost
+- **Operations management**: Enable you to group resources according to how critical their availability is to your business. This grouping helps you formulate SLAs.
+- **Security**: Tags enable you to classify data by its security level, such as public or confidential.
+- **Governance and regulatory compliance**: Identify resources that align with governance or regulatory compliance requirements. Tags can also be part of your standard enforcement efforts. for example, you might require that all resources be tagged with an owner or department name.
+- **Workload optimization and automation**: Help you visualize all resources that participate in complex deployments.
+
+### How do I manage resource tags?
+You can add, modify, or delete resource tags through PowerShell, the Azure CLI, Azure Resource Manager templates, the REST API, or the Azure portal.
+
+You can also manage tags by using Azure Policy. For example, you can apply tags to a resource group, but those tags aren't automatically applied to the resources within that resource group.You can use Azure Policy to ensure that a resource inherits the same tags as its parent resource group.
+
+### Example tagging structure
+A resource tag consists of a name and a value. You can assign one or more tags to each Azure resource.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/build-cloud-governance-strategy-azure/media/8-vm-tags-7c63fa8a.png">
+
+Keep in mind that you don't need to enforce that a specific tag is present on all your resources. For example, you might decide that only mission-critical resources have the Impact tag. All non-tagged resources would then not be considered as mission-critical.
+
+<hr>
+
+## Control and audit your resources by using Azure Policy
+Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources. These policies enforce different rules across all of your resource configurations so that those configurations stay compliant with corporate standards.
+
+### How does Azure Policy define policies?
+Azure Policy enables you to define both individual policies and groups of related policies, known as initiatives. Azure Policy evaluates your resources and highlights resources that aren't compliant with the policies you've created. Azure Policy can also prevent noncompliant resources from being created.
+
+Azure Policy comes with built-in policy and initiative definitions for Storage, Networking, Compute, Security Center, and Monitoring. For example, if you define a policy that allows only a certain SKU (stock-keeping unit) size for the VMs to be used in your environment, that policy is invoked when you create a new VM and whenever you resize existing VMs. Azure Policy also evaluates and monitors all current VMs in your environment.
+
+Azure Policy can also automatically remediate noncompliant resources, like applying a tag if it was missing.
+
+It also integrates with Azure DevOps by applying any continuous integration and delivery pipeline policies that pertain to the pre-deployment and post-deployment phases of your applications.
+
+### Azure Policy in action
+Implementing a policy in Azure Policy involves three tasks:
+
+1. Create policy definition
+2. Assign the definition to resources
+3. Review the evaluation results
+
+### Task 1. Create a policy definition
+A policy definition expresses what to evaluate and what action to take. For example, you could prevent VMs from being deployed in certain Azure regions. You also could audit your storage accounts to verify that they only accept connections from allowed networks.
+
+Every policy definition has conditions under which it's enforced. Here are some example policy definitions:
+- **Allowed virtual machine SKUs**: This policy enables you to specify a set of VM SKUs that your organization can deploy.
+- **Allowed locations**: This policy enables you to restrict the locations that your organization can specify when it deploys resources. Its effect is used to enforce your geographic compliance requirements.
+- **MFA should be enabled on accounts with write permissions on your subscription**
+- **CORS should not allow every resource to access your web applications**
+- **System updates should be installed on your machines**
+
+### Task 2. Assign the definition to resources
+To implement your policy definitions, you assign definitions to resources. A policy assignment is a policy definition that takes place within a specific scope. This scope could be a management group (a collection of multiple subscriptions), a single subscription, or a resource group.
+
+Policy assignments are inherited by all child resources within that scope. If a policy is applied to a resource group, that policy is applied to all resources within that resource group. You can exclude a subscope from the policy assignment if there are specific child resources you need to be exempt from the policy assignment.
+
+### Task 3. Review the evaluation results
+When a condition is evaluated against your existing resources, each resource is marked as compliant or noncompliant. You can review the noncompliant policy results and take any action that's needed. Policy evaluation happens about once per hour.
+
+### What are Azure Policy initiatives?
+An Azure Policy initiative is a way of grouping related policies together. The initiative definition contains all of the policy definitions to help track your compliance state for a larger goal.
+
+For example, Azure Policy includes an initiative named **Enable Monitoring in Azure Security Center**. Its goal is to monitor all of the available security recommendations for all Azure resource types in Azure Security Center.
+
+Under this initiative, the following policy definitions are included:
+
+- **Monitor unencrypted SQL Database in Security Center**: monitors for unencrypted SQL databases and servers
+- **Monitor OS vulnerabilities in Security Center**: monitors servers that don't satisfy the configured OS vulnerability baseline
+- **Monitor missing Endpoint Protection in Security Center**: monitors for servers that don't have an installed endpoint protection agent
+
+The **Enable Monitoring in Azure Security Center** initiative contains over 100 separate policy definitions.
+
+### How do I define an initiative?
+You define initiatives by using the Azure portal or command-line tools. From the Azure portal, you can search the list of built-in initiatives that are built into Azure. You can also create your own custom policy definition.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/build-cloud-governance-strategy-azure/media/3-define-initiatives-a834dde7.png">
+
+### How do I assign an initiative?
+Like a policy assignment, an initiative assignment is an initiative definition that's assigned to a specific scope of a management group, a subscription, or a resource group.
+
+Even if you have only a single policy, an initiative enables you to increase the number of policies over time. Because the associated initiative remains assigned, it's easier to add and remove policies without the need to change the policy assignment for your resources.
+
+<hr>
+
+## Govern multiple subscriptions by using Azure Blueprints
+With Azure Blueprints you can define a repeatable set of governance tools and standard Azure resources that your organization requires. In this way, development teams can rapidly build and deploy new environments with the knowledge that they're building within organizational compliance with a set of built-in components that speed the development and deployment phases.
+
+Azure Blueprints orchestrates the deployment of various resource templates and other artifacts, such as:
+- Role assignments
+- Policy assignments
+- Azure Resource Manager templates
+- Resource groups
+
+### Azure Blueprints in action
+Azure Blueprints can be used to scale your governance practices throughout the organization.
+
+Implementing a blueprint in Azure Blueprint involves these three steps:
+1. Create an Azure blueprint
+2. Assign the blueprint
+3. Track the blueprint assignments
+
+With Azure Blueprints, the relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed) is preserved. In other words, Azure creates a record that associates a resource with the blueprint that defines it. This connection helps you track and audit your deployments. Blueprints are also versioned, which enables you to track and comment on changes to your blueprint.
+
+### What are blueprint artifacts?
+Each component in the blueprint is known as an artifact.
+
+It is possible for artifacts to have no additional parameters (configurations). An example is the **Deploy threat detection on SQL servers** policy, which requires no additional configuration.
+
+Artifacts can also contain one or more parameters that you can configure. The following screenshot shows the **Allowed locations** policy. This policy includes a parameter that specifies the allowed locations.
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/build-cloud-governance-strategy-azure/media/10-allowed-locations-d139a119.png">
+
+You can specify a parameter's value when you create the blueprint definition or when you assign the blueprint definition to a scope. In this way, you can maintain one standard blueprint but have the flexibility to specify the relevant configuration parameters at each scope where the definition is assigned.
+
+<hr>
+
+## Accelerate your cloud adoption journey by using the Cloud Adoption Framework for Azure
+The Cloud Adoption Framework for Azure provides you with proven guidance to help with your cloud adoption journey. The Cloud Adoption Framework helps you create and implement the business and technology strategies needed to succeed in the cloud.
+
+The Cloud Adoption Framework consists of tools, documentation, and proven practices. The Cloud Adoption Framework includes these stages:
+
+1. Define your strategy
+2. Make a plan
+3. Ready your organization
+4. Adopt the cloud
+5. Govern and manage your cloud environments
+
+<img width="517" alt="image" src="https://docs.microsoft.com/en-us/learn/azure-fundamentals/build-cloud-governance-strategy-azure/media/2-framework-stages-9b54ccbe.png">
+
+### Define your strategy
+Here, you answer why you're moving to the cloud and what you want to get out of cloud migration. Do you need to scale to meet demand and reach new markets? Will it reduce costs or increase business agility? When you define your cloud business strategy, you should understand cloud economics and consider business impact, turnaround time, global reach, performance, and more.
+
+Here are the steps in this stage:
+
+1. **Define and document your motivations**: Meeting with stakeholders and leadership can help you answer why you're moving to the cloud
+2. **Document business outcomes**: Meet with leadership from your finance, marketing, sales, and HR groups to help you document your goals
+3. **Evaluate financial considerations**: Measure objectives and identify the return expected from a specific investment
+4. **Understand technical considerations**: Evaluate those technical considerations through the selection and completion of your first technical project
+
+
+### Make a plan
+Here you build a plan that maps your aspirational goals to specific actions. A good plan helps ensure that your efforts map to the desired business outcomes.
+
+Here are the steps in this stage:
+
+1. **Digital estate**: Create an inventory of existing digital assets and workloads that you plan to migrate to the cloud
+2. **Initial organizational alignment**: Ensure that the right people are involved in your migration efforts, both from a technical standpoint as well as from a cloud governance standpoint
+3. **Skills readiness plan**: Build a plan that helps individuals build the skills they need to operate in the cloud
+4. **Cloud adoption plan**: Build a comprehensive plan that brings together the development, operations, and business teams toward a shared cloud adoption goal
+
+### Ready your organization
+Here, you create a landing zone, or an environment in the cloud to begin hosting your workloads.
+
+Here are the steps in this stage:
+
+1. **Azure setup guide**: Review the Azure setup guide to become familiar with the tools and approaches you need to use to create a landing zone
+2. **Azure landing zone**: Begin to build out the Azure subscriptions that support each of the major areas of your business. A landing zone includes cloud infrastructure as well as governance, accounting, and security capabilities
+3. **Expand the landing zone**: Refine your landing zone to ensure that it meets your operations, governance, and security needs
+4. **Best practices**: Start with recommended and proven practices to help ensure that your cloud migration efforts are scalable and maintainable
+
+### Adopt the cloud
+Here, you begin to migrate your applications to the cloud. Along the way, you might find ways to modernize your applications and build innovative solutions that use cloud services.
+
+The Cloud Adoption Framework breaks this stage into two parts: migrate and innovate.
+
+**Migrate**: Here are the steps in the migrate part of this stage.
+
+1. **Migrate your first workload**: Use the Azure migration guide to deploy your first project to the cloud
+2. ***Migration scenarios**: Use additional in-depth guides to explore more complex migration scenarios
+3. **Best practices**: Check in with the Azure cloud migration best practices checklist to verify that you're following recommended practices
+4. **Process improvements**: Identify ways to make the migration process scale with requiring less effort
+
+**Innovate**: Here are the steps in the innovate part of this stage.
+
+1. **Business value consensus**: Verify that investments in new innovations add value to the business and meet customer needs
+2. **Azure innovation guide**: Use this guide to accelerate development and build a MVP for your idea
+3. **Best practices**: Verify that your progress maps to recommended practices before you move forward
+4. **Feedback loops**: Check in frequently with your customers to verify that you're building what they need
+
+### Govern and manage your cloud environments
+Here you begin to form your cloud governance and cloud management strategies. As the cloud estate changes over time, so do cloud governance processes and polices. You need to create resilient solutions that are constantly optimized.
+
+**Govern**: Here are the steps in the govern part of this stage.
+
+1. **Methodology**: Consider your end state solution. Then define a methodology that incrementally takes you from your first steps all the way to full cloud governance
+2. **Benchmark**: Use the governance benchmark tool to assess your current state and future state to establish a vision for applying the framework
+3. **Initial governance foundation**: Create an MVP that captures the first steps of your governance plan
+4. **Improve the initial governance foundation**: Iteratively add governance controls that address tangible risks as you progress toward your end state solution
+
+**Manage**: Here are the steps in the manage part of this stage.
+
+1. **Establish a management baseline**: Define your minimum commitment to operations management. A management baseline is the minimum set of tools and processes that should be applied to every asset in the environment
+2. **Define business commitments**: Document supported workloads to establish operational commitments with the business and agree on cloud management investments for each workload
+3. **Expand the management baseline**: Apply recommended best practices to iterate on your initial management baseline
+4. **Advanced operations and design principles**: For workloads that require a higher level of business commitment, perform a deeper architecture review to deliver on your resiliency and reliability commitments
+
+<hr>
+
+## Knowledge check
+1. How can Tailwind Traders allow some user to control the VMs in each environment but prevent them from modifying networking and other resources in the same resource group or Azure subscription? -> Create a role assignment through Azure role-based access control (Azure RBAC)
+2. Which is the best way for Tailwind Traders to ensure that the team deploys cost-effective virtual machine SKU sizes? -> Create a policy in Azure Policy that specifies the allowed SKU sizes
+3. Which is likely the best way for Tailwind Traders to identify which billing department each Azure resource belongs to? -> Apply a tag to each resource that includes the associated billing department
+
+<hr>
+
+## Summary
+There are several services and features in Azure to support these efforts:
+
+- Azure role-based access control (Azure RBAC) enables you to create roles that define access permissions
+- Resource locks prevent resources from being accidentally deleted or changed
+- Resource tags provide extra information, or metadata, about your resources
+- Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources
+- Azure Blueprints enables you to define a repeatable set of governance tools and standard Azure resources that your organization requires
